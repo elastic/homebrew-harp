@@ -8,11 +8,11 @@ class Harp < Formula
   # Stable build
   stable do
     if OS.mac?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.5/harp-darwin-amd64-v0.1.5.tar.xz"
-      sha256 "5629b0cf9df1279e2a79a3e5ab205697c49a3285b29d43877b83e4d63eb7e96b"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.6/harp-darwin-amd64-v0.1.6.tar.xz"
+      sha256 "513fc778d69bc0736b2edc47dcff37a2ae3472151b20c58551bd6518504b52f0"
     elsif OS.linux?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.5/harp-linux-amd64-v0.1.5.tar.xz"
-      sha256 "88fbbb4fc24326a0dc0dcb29fa0b82f4822b0bc48ea9e365819ec049d6158afb"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.6/harp-linux-amd64-v0.1.6.tar.xz"
+      sha256 "bef640e34053ec1ece0a748159752fca0d2a2418d819af6f55fc3ee9c5813f92"
     end
   end
 
