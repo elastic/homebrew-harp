@@ -8,10 +8,10 @@ class HarpServer < Formula
   # Stable build
   stable do
     if OS.mac?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp-server%2Fv0.1.6/harp-server-darwin-amd64-v0.1.6.tar.xz"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp-server%2Fv0.1.7/harp-server-darwin-amd64-v0.1.7.tar.xz"
       sha256 "fc77d8008829bedb782a10b5f54dc0e6541f0bfe0c5bd4f4498388994ef3977b"
     elsif OS.linux?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp-server%2Fv0.1.6/harp-server-linux-amd64-v0.1.6.tar.xz"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp-server%2Fv0.1.7/harp-server-linux-amd64-v0.1.7.tar.xz"
       sha256 "73cf5446c00d5d7265ce8d4f0b23ee647da45729a84f2922b0f7a3dbbfff8090"
     end
   end
