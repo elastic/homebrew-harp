@@ -7,12 +7,15 @@ class Harp < Formula
 
   # Stable build
   stable do
-    if OS.mac?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.11/harp-darwin-amd64-v0.1.11.tar.xz"
-      sha256 "06db3ae7d8f9d04136276aac2038ea115ab6c9b877eea940d15878478f996013"
+  	if OS.mac? && Hardware::CPU.arm?
+	  url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.12/harp-darwin-arm64-v0.1.12.tar.xz"
+      sha256 "473fc84abd596a266b0cabf106bb6b0db6bab0d9ba4c67f7d1b053df0b19d9f0"
+    elsif OS.mac?
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.12/harp-darwin-amd64-v0.1.12.tar.xz"
+      sha256 "9cf6f8bb73eb1379117813561ceda0ebf3d71941617a16dfb4eda13bb045e26d"
     elsif OS.linux?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.11/harp-linux-amd64-v0.1.11.tar.xz"
-      sha256 "6690ac1e434d0910d83465bb25e8735f491220e8d006ddfbc193ae8d616c73eb"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.12/harp-linux-amd64-v0.1.12.tar.xz"
+      sha256 "90a596b4b3c0e96fa6993a2d796a528843356ebd384f26c3aa5bb911c896b9f1"
     end
   end
 
@@ -30,7 +33,9 @@ class Harp < Formula
 
     unless build.head?
       # Install binaries
-      if OS.mac?
+      if OS.mac? && Hardware::CPU.arm?
+        bin.install "harp-darwin-arm64" => "harp"
+      elsif OS.mac?
         bin.install "harp-darwin-amd64" => "harp"
       elsif OS.linux?
         bin.install "harp-linux-amd64" => "harp"
@@ -52,7 +57,9 @@ class Harp < Formula
       # Install builded command
       cd "src/github.com/elastic/harp/cmd/harp/bin" do
         # Install binaries
-        if OS.mac?
+        if OS.mac? && Hardware::CPU.arm?
+          bin.install "harp-darwin-arm64" => "harp"
+        elsif OS.mac?
           bin.install "harp-darwin-amd64" => "harp"
         elsif OS.linux?
           bin.install "harp-linux-amd64" => "harp"
