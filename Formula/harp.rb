@@ -8,14 +8,14 @@ class Harp < Formula
   # Stable build
   stable do
   	if OS.mac? && Hardware::CPU.arm?
-	  url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.12/harp-darwin-arm64-v0.1.12.tar.xz"
-      sha256 "473fc84abd596a266b0cabf106bb6b0db6bab0d9ba4c67f7d1b053df0b19d9f0"
+	  url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.13/harp-darwin-arm64-v0.1.13.tar.xz"
+      sha256 "7a02901c5d7cb05ea4d1a8afeaa7ab80f02fb3a8e5d3d7e381db1ee63fdddbf1"
     elsif OS.mac?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.12/harp-darwin-amd64-v0.1.12.tar.xz"
-      sha256 "9cf6f8bb73eb1379117813561ceda0ebf3d71941617a16dfb4eda13bb045e26d"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.13/harp-darwin-amd64-v0.1.13.tar.xz"
+      sha256 "144a2a2cafb442658e6e58aee7a024b70c74f43d1eaec2cc57b34f385e7c5ed9"
     elsif OS.linux?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.12/harp-linux-amd64-v0.1.12.tar.xz"
-      sha256 "90a596b4b3c0e96fa6993a2d796a528843356ebd384f26c3aa5bb911c896b9f1"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.13/harp-linux-amd64-v0.1.13.tar.xz"
+      sha256 "f6ce426e4418833a0e030741bf7d024c7cca63c5b282b21d9f2400c3893e1695"
     end
   end
 
