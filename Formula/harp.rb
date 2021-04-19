@@ -3,44 +3,37 @@ class Harp < Formula
   desc "Secret management toolchain"
   homepage "https://github.com/elastic/harp"
   license "Apache 2.0"
-  bottle :unneeded
-
-  # Stable build
   stable do
-  	if OS.mac? && Hardware::CPU.arm?
-	  url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.14/harp-darwin-arm64-v0.1.14.tar.xz"
-      sha256 "d8fa2bceeddda911888b704af2b38e6f923a4d05ef3da9a019b488185dfea5ef"
+    if OS.mac? && Hardware::CPU.arm?
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.15/harp-darwin-arm64-v0.1.15.tar.xz"
+      sha256 "5c5a91b53b0118dba9263b4f39ebe935f1b56b1934567d2f6c2afae8fa3a5304"
     elsif OS.mac?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.14/harp-darwin-amd64-v0.1.14.tar.xz"
-      sha256 "65d94e1da85fc726e49e1fb69d183d82f07a244675bf319281d6c99b0256c396"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.15/harp-darwin-amd64-v0.1.15.tar.xz"
+      sha256 "610ac8e827475628007f2f82dde9f14ba98d819e216b557ae307939b42f2b603"
     elsif OS.linux?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.14/harp-linux-amd64-v0.1.14.tar.xz"
-      sha256 "da648f136aaf575ec831a256e8ac46202a0f43c069c028e8f429ee8c6de74d04"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.15/harp-linux-amd64-v0.1.15.tar.xz"
+      sha256 "3fc3f2f9062bf9be1e5d06de694f4b0878ae6f25c75580daaf97df92145b896f"
     end
   end
 
-  # Source definition
   head do
-    url "https://github.com/elastic/harp.git", :branch => "main"
+    url "https://github.com/elastic/harp.git", branch: "main"
 
     # build dependencies
     depends_on "go" => :build
     depends_on "mage" => :build
   end
 
+  bottle :unneeded
+
+  # Stable build
+
+  # Source definition
+
   def install
     ENV.deparallelize
 
-    unless build.head?
-      # Install binaries
-      if OS.mac? && Hardware::CPU.arm?
-        bin.install "harp-darwin-arm64" => "harp"
-      elsif OS.mac?
-        bin.install "harp-darwin-amd64" => "harp"
-      elsif OS.linux?
-        bin.install "harp-linux-amd64" => "harp"
-      end
-    else
+    if build.head?
       # Prepare build environment
       ENV["GOPATH"] = buildpath
       (buildpath/"src/github.com/elastic/harp").install Dir["{*,.git,.gitignore}"]
@@ -65,6 +58,13 @@ class Harp < Formula
           bin.install "harp-linux-amd64" => "harp"
         end
       end
+    elsif OS.mac? && Hardware::CPU.arm?
+      # Install binaries
+      bin.install "harp-darwin-arm64" => "harp"
+    elsif OS.mac?
+      bin.install "harp-darwin-amd64" => "harp"
+    elsif OS.linux?
+      bin.install "harp-linux-amd64" => "harp"
     end
 
     # Final message
