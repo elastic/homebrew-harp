@@ -6,13 +6,13 @@ class Harp < Formula
   stable do
     if OS.mac? && Hardware::CPU.arm?
       url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.18/harp-darwin-arm64-v0.1.18.tar.xz"
-      sha256 "5feb25d741a119b33cb99be8b46b2ecc45a778c5f912967ae7fb034876b16c42"
+      sha256 "1acc5519a90fde59c839882f3b3eea3111f043b2423c7e251499a91588b4192e"
     elsif OS.mac?
       url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.18/harp-darwin-amd64-v0.1.18.tar.xz"
-      sha256 "6fe43a3c026936e533c422d7bc1ca0e7d4c4ce75bbe08e51c2d90d946e82baa8"
+      sha256 "ea6a4ab62a8dc87ae1163dab6e0cf5ffe316eba2c136d7c67c13edc0d9d47e50"
     elsif OS.linux?
       url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.18/harp-linux-amd64-v0.1.18.tar.xz"
-      sha256 "e18d5b92f55e434cba99d2869e996b07c25f8494a41058cc5f00f5f1fd5c439a"
+      sha256 "c7b8e545b4cf68b7ef9ffe20330013a02b91f760f1409b93a5aefc0eca0a68f5"
     end
   end
 
