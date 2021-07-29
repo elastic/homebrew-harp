@@ -2,17 +2,17 @@
 class Harp < Formula
   desc "Secret management toolchain"
   homepage "https://github.com/elastic/harp"
-  license "Apache 2.0"
+  license "Apache-2.0"
   stable do
     if OS.mac? && Hardware::CPU.arm?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.19/harp-darwin-arm64-v0.1.19.tar.xz"
-      sha256 "274b1eff42296b2dbb03359cfb2959b987146e2d52825159d51b4f23da5f3d48"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.20/harp-darwin-arm64-v0.1.20.tar.xz"
+      sha256 "0a050dd8d7ea34203292a715e78bad581db83389d5f680b0763ccefee861f0ad"
     elsif OS.mac?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.19/harp-darwin-amd64-v0.1.19.tar.xz"
-      sha256 "38ba56fbe2779e44e09c647a5150e099fc3fb3e97fa3bdf91b77ac110d594316"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.20/harp-darwin-amd64-v0.1.20.tar.xz"
+      sha256 "2ec49bcb7e6865e337abea80986366cc90ab7f45a54427e5b5c7696ab1494b2f"
     elsif OS.linux?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.19/harp-linux-amd64-v0.1.19.tar.xz"
-      sha256 "d9a954884f421091a55075d390fa3406bae7364d89abb39aa71921fb5817001d"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.1.20/harp-linux-amd64-v0.1.20.tar.xz"
+      sha256 "3fab0d301c42dc953e0250bc5c29e9f14b75c561d84867ce9b7a7aac61a92d03"
     end
   end
 
