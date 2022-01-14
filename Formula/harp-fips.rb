@@ -5,6 +5,7 @@
 class HarpFips < Formula
   desc "Secret management toolchain (FIPS)"
   homepage "https://github.com/elastic/harp"
+  version "0.2.4"
   license "Apache-2.0"
 
   on_macos do

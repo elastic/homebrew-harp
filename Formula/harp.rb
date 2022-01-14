@@ -5,6 +5,7 @@
 class Harp < Formula
   desc "Secret management toolchain"
   homepage "https://github.com/elastic/harp"
+  version "0.2.4"
   license "Apache-2.0"
 
   on_macos do
