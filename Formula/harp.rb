@@ -5,32 +5,32 @@
 class Harp < Formula
   desc "Secret management toolchain"
   homepage "https://github.com/elastic/harp"
-  version "0.2.6"
+  version "0.2.7"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.6/harp-darwin-amd64.tar.gz"
-      sha256 "f3e38fe5b28597cde5e4086921a59e2a1bee5db0a599560ceec02c14510c5e4c"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.7/harp-darwin-amd64.tar.gz"
+      sha256 "9d5d8d1ffd9fc08391482a6430c88709e8d3bc03233f0514e677149ddb14dc43"
     elsif Hardware::CPU.arm?
-      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.6/harp-darwin-arm64.tar.gz"
-      sha256 "ac9691c34ddbe8dc87bd48bfff31da1e561c649c721b953e1c3db07061bb1e3b"
+      url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.7/harp-darwin-arm64.tar.gz"
+      sha256 "871503d43c9a141a1f41b27038ffe4aafb0b93a505165f66cb5508f56f6cb8d0"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.6/harp-linux-amd64.tar.gz"
-        sha256 "e27879714d1d0bf9e38669738daffa3e16afc1e44b6d62136d26e9a7785d8cf7"
+        url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.7/harp-linux-amd64.tar.gz"
+        sha256 "ca289290d57d5b34c6bc2020f030f317252b31a93475a6c42aaae0617d4b91fd"
       end
     elsif Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.6/harp-linux-arm64.tar.gz"
-        sha256 "dc61ef6b1e9673e8e9a859c89f1209f3b3a4ede47cc81096d9404e8ec7ea948a"
+        url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.7/harp-linux-arm64.tar.gz"
+        sha256 "f673252566247d775d2c659c13dec175afa999fa8631cabc15521724f882fdd8"
       else
-        url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.6/harp-linux-arm7.tar.gz"
-        sha256 "93153306ba0abf04eab6847543e832eda5d3fa4b6344b800a29befa9a791b385"
+        url "https://github.com/elastic/harp/releases/download/cmd%2Fharp%2Fv0.2.7/harp-linux-arm7.tar.gz"
+        sha256 "9547f8545dd0ea4d753f0041bb4d133cc5cfdd6478a32cf29aabe49424b912c0"
       end
     end
   end
