@@ -49,6 +49,18 @@ class HarpFips < Formula
       bin.install "harp-linux-amd64-fips" => "harp"
     end
 
+    # Exclude from Gatekeeper quarantine
+    if MacOS.version >= :catalina && /com.apple.quarantine/.match?(Utils.safe_popen_read("xattr", "#{bin}/harp"))
+      (bin/"harp").chmod 0755
+      begin
+        system "xattr", "-d",
+                        "com.apple.quarantine",
+                        bin/"harp"
+      ensure
+        (bin/"harp").chmod 0555
+      end
+    end
+
     # Final message
     ohai "Install success!"
   end
@@ -62,6 +74,7 @@ class HarpFips < Formula
   end
 
   test do
+    assert_predicate bin/"harp", :exist?
     assert_match version.to_s, shell_output("#{bin}/harp version")
   end
 end
