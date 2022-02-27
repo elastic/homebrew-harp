@@ -46,7 +46,17 @@ class HarpFips < Formula
     elsif OS.mac?
       bin.install "harp-darwin-amd64-fips" => "harp"
     elsif OS.linux?
-      bin.install "harp-linux-amd64-fips" => "harp"
+      if Hardware::CPU.arm?
+        if Hardware::CPU.is_64_bit?
+          bin.install "harp-linux-arm64-fips" => "harp"
+        else
+          bin.install "harp-linux-arm-fips" => "harp"
+        end
+      else
+        if Hardware::CPU.is_64_bit?
+          bin.install "harp-linux-amd64-fips" => "harp"
+        end
+      end
     end
 
     # Exclude from Gatekeeper quarantine
