@@ -5,32 +5,32 @@
 class Harp < Formula
   desc "Secret management toolchain"
   homepage "https://github.com/elastic/harp"
-  version "0.2.8"
+  version "0.2.10"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/elastic/harp/releases/download/v0.2.8/harp-darwin-amd64.tar.gz"
-      sha256 "a44c3130fe8ec49c98f5fb7fa3e076781a5e85f90acdd87dab4b8baad6d7a855"
+      url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-darwin-amd64.tar.gz"
+      sha256 "5af1ae8df4e7c96761d0fbd9b11743723528dffd8269738fd1c805da2fb349ca"
     elsif Hardware::CPU.arm?
-      url "https://github.com/elastic/harp/releases/download/v0.2.8/harp-darwin-arm64.tar.gz"
-      sha256 "d2b095fdab2fed8e29596e5c4077d1cd8df415ce8844ce48239803f0f2364a94"
+      url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-darwin-arm64.tar.gz"
+      sha256 "5be453a93cad52ccf3033102c641b2bd6a63e5acc1d8dc539a77000504b92788"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/elastic/harp/releases/download/v0.2.8/harp-linux-amd64.tar.gz"
-        sha256 "831c0f36b28b08531023d7a5d45198b969a39fad91a9c84290f76257670a3bb6"
+        url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-linux-amd64.tar.gz"
+        sha256 "5aea383faf537350f9d6a5785d9a4b56efb7974992a7fee4df52631292c8b2ed"
       end
     elsif Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/elastic/harp/releases/download/v0.2.8/harp-linux-arm64.tar.gz"
-        sha256 "63083d498b98e440bdf0ca0d41b2c2013cc449826ba491c6238452ba56e8e6ba"
+        url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-linux-arm64.tar.gz"
+        sha256 "59fd71a419aeb334bc9fbc0e5315946defc3d3f8374538cbdffae3c32ff1c1b7"
       else
-        url "https://github.com/elastic/harp/releases/download/v0.2.8/harp-linux-arm.tar.gz"
-        sha256 "0a0fd323d5c8efdc07b42d6573cd242dc89de7116f5c6a6e74fcd86aa0ccfacf"
+        url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-linux-arm.tar.gz"
+        sha256 "1429571d716b3f4dcf182b4f6f97393fd90b0f0b87910e31d3c316f563556605"
       end
     end
   end
