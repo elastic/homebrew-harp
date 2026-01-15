@@ -5,32 +5,32 @@
 class Harp < Formula
   desc "Secret management toolchain"
   homepage "https://github.com/elastic/harp"
-  version "0.2.10"
+  version "0.2.12"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-darwin-amd64.tar.gz"
-      sha256 "5af1ae8df4e7c96761d0fbd9b11743723528dffd8269738fd1c805da2fb349ca"
+      url "https://github.com/elastic/harp/releases/download/v0.2.12/harp-darwin-amd64-v1.tar.gz"
+      sha256 "10f8265a060c550c699a40728060af7d8717ec32a9d063bf1f756ee60afdc119"
     elsif Hardware::CPU.arm?
-      url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-darwin-arm64.tar.gz"
-      sha256 "5be453a93cad52ccf3033102c641b2bd6a63e5acc1d8dc539a77000504b92788"
+      url "https://github.com/elastic/harp/releases/download/v0.2.12/harp-darwin-arm64-v8.0.tar.gz"
+      sha256 "840b57d74a57205631c68e5590e05cc2656a799173aaebcdefa9c5f618301c4f"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-linux-amd64.tar.gz"
-        sha256 "5aea383faf537350f9d6a5785d9a4b56efb7974992a7fee4df52631292c8b2ed"
+        url "https://github.com/elastic/harp/releases/download/v0.2.12/harp-linux-amd64-v1.tar.gz"
+        sha256 "27ce288943e1ade60689243ff7323d81a570b3daf41067d0f1daae5e33288640"
       end
     elsif Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-linux-arm64.tar.gz"
-        sha256 "59fd71a419aeb334bc9fbc0e5315946defc3d3f8374538cbdffae3c32ff1c1b7"
+        url "https://github.com/elastic/harp/releases/download/v0.2.12/harp-linux-arm64-v8.0.tar.gz"
+        sha256 "3a71502ff734f56103cbb260f14200d92aa0f3e43404969c019ad40278300f03"
       else
-        url "https://github.com/elastic/harp/releases/download/v0.2.10/harp-linux-arm.tar.gz"
-        sha256 "1429571d716b3f4dcf182b4f6f97393fd90b0f0b87910e31d3c316f563556605"
+        url "https://github.com/elastic/harp/releases/download/v0.2.12/harp-linux-arm-6.tar.gz"
+        sha256 "044f3217f8b9b8bccad646111bfc79ca440949a320b910ebb76827fb0d4984b0"
       end
     end
   end
@@ -43,26 +43,26 @@ class Harp < Formula
     # Install binaries
     if OS.mac?
       if Hardware::CPU.arm?
-        bin.install "harp-darwin-arm64" => "harp"
+        bin.install "harp-darwin-arm64-v8.0" => "harp"
       else
-        bin.install "harp-darwin-amd64" => "harp"
+        bin.install "harp-darwin-amd64-v1" => "harp"
       end
     elsif OS.linux?
       if Hardware::CPU.arm?
         if Hardware::CPU.is_64_bit?
-          bin.install "harp-linux-arm64" => "harp"
+          bin.install "harp-linux-arm64-v8.0" => "harp"
         else
-          bin.install "harp-linux-arm" => "harp"
+          bin.install "harp-linux-arm-6" => "harp"
         end
       else
         if Hardware::CPU.is_64_bit?
-          bin.install "harp-linux-amd64" => "harp"
+          bin.install "harp-linux-amd64-v1" => "harp"
         end
       end
     end
 
-    # Exclude from Gatekeeper quarantine
-    if MacOS.version >= :catalina && /com.apple.quarantine/.match?(Utils.safe_popen_read("xattr", "#{bin}/harp"))
+    # Exclude from Gatekeeper quarantine on macOS Catalina+
+    if OS.mac? && MacOS.version >= :catalina && /com.apple.quarantine/.match?(Utils.safe_popen_read("xattr", "#{bin}/harp"))
       (bin/"harp").chmod 0755
       begin
         system "xattr", "-d",
