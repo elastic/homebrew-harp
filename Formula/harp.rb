@@ -54,15 +54,14 @@ class Harp < Formula
         else
           bin.install "harp-linux-arm-6" => "harp"
         end
-      else
-        if Hardware::CPU.is_64_bit?
-          bin.install "harp-linux-amd64-v1" => "harp"
-        end
+      elsif Hardware::CPU.is_64_bit?
+        bin.install "harp-linux-amd64-v1" => "harp"
       end
     end
 
     # Exclude from Gatekeeper quarantine on macOS Catalina+
-    if OS.mac? && MacOS.version >= :catalina && /com.apple.quarantine/.match?(Utils.safe_popen_read("xattr", "#{bin}/harp"))
+    quarantine_check = Utils.safe_popen_read("xattr", bin/"harp")
+    if OS.mac? && MacOS.version >= :catalina && /com.apple.quarantine/.match?(quarantine_check)
       (bin/"harp").chmod 0755
       begin
         system "xattr", "-d",
@@ -86,7 +85,7 @@ class Harp < Formula
   end
 
   test do
-    assert_predicate bin/"harp", :exist?
+    assert_path_exists bin/"harp"
     assert_match version.to_s, shell_output("#{bin}/harp version")
   end
 end
